@@ -1,0 +1,39 @@
+//variables
+$primary-color: #1A00F0;
+$secondary-color: #F0CF00;
+$show-home-image: true;
+$home-image: url(/dist/img/colorLeaves.jpg);
+$background-opacity: 0.8;
+
+//functions
+
+//animation
+@mixin easeOut {
+    transition: all 0.5s ease-out;
+}
+//home-backgroung
+//2 layers: bg-img = colored leaves
+//          overlay = overlaping blue color with opacity 0.8************
+//          after + content::'' = pseudo element - does not exist in html but added in scss
+@mixin background{
+    @if $show-home-image{
+        &#bg-img{
+            background: $home-image;
+            background-attachment: fixed;
+            background-size: cover;
+
+            // .overlay{ ---for class
+            &:after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background: rgba($primary-color, $background-opacity);
+
+            }
+        }
+    }
+}
