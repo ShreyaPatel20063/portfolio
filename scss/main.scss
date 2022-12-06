@@ -11,7 +11,7 @@
 body {
     @include background();
     background: $primary-color;
-    color: #fff;    
+    color: set-text-color($primary-color);    
     height: 100%;
     margin: 0;
     font-family: Noto Serif;
@@ -37,7 +37,7 @@ h1, h2, h3{
 
 //links
 a{
-    color: white;
+    color: set-text-color($primary-color);
     text-decoration: none;
 }
 
@@ -74,4 +74,54 @@ main{
             margin-top: 20vh;
         }
     }
+}
+
+
+.about-info {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas:
+    'bioimage bio bio'
+    'job1 job2 job3';
+    grid-template-columns: repeat(3, 1fr);
+
+    
+    .bio-image{
+        grid-area: bioimage;
+        margin: auto;
+        border-radius: 50%;
+        border: $secondary-color 5px solid;
+    }
+    .bio{
+        grid-area: bio;
+        font-size: 1.5rem;
+    }
+    .job1{
+        grid-area: job1;
+
+    }
+    .job2{
+        grid-area: job2;
+
+    }
+    .job3{
+        grid-area: job3;
+
+    }
+
+    .job{
+        position: relative;
+        align-items: left;
+        padding: 0.5rem;
+        background: lighten($color: $primary-color, $amount: 5);
+        border-bottom: $secondary-color 5px solid;
+    }
+
+}
+
+#main-footer{
+    text-align: center;
+    padding: 1rem;
+    background: darken($color: $primary-color, $amount: 10);
+    height: 60px;
 }
