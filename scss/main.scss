@@ -67,6 +67,7 @@ main{
 
             }
         }
+        
     }
 
     &#home{
@@ -92,6 +93,10 @@ main{
         margin: auto;
         border-radius: 50%;
         border: $secondary-color 5px solid;
+        &:hover{
+            transform: scale(1.15);
+            @include easeOut;
+        }
     }
     .bio{
         grid-area: bio;
@@ -99,7 +104,6 @@ main{
     }
     .job1{
         grid-area: job1;
-
     }
     .job2{
         grid-area: job2;
@@ -116,6 +120,10 @@ main{
         padding: 0.5rem;
         background: lighten($color: $primary-color, $amount: 5);
         border-bottom: $secondary-color 5px solid;
+        &:hover{
+            transform: scale(1.15);
+            @include easeOut;
+        }
     }
 
 }
